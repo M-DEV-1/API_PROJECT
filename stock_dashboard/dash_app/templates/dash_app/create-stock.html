@@ -1,0 +1,28 @@
+{% extends 'dash_app/base.html' %}
+
+{% block content %}
+<body>
+        
+    <div class="container bg-secondary shadow-md p-2 form-layout">
+    
+        <div class="text-secondary bg-primary p-2">
+            <h1 class="text-light">Create Stock Record</h1>
+            <h7 class="text-success">add the required details for your record<hr></h7>
+        </div>
+    
+        
+        <br>
+        <form method="POST" autocomplete="off">
+    
+            {% csrf_token %}
+    
+            {{form.as_p}}
+            <br>
+    
+            <button href = "{% url 'stock-create' %}" type="submit" class="btn btn-primary p-2">Create Record</button>
+            <a href="{% url 'stock-list' %}" class="btn btn-warning p-2">Return</a>
+        </form>
+        <br>
+    </div>
+</body>
+{% endblock %}

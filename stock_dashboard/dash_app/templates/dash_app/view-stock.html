@@ -1,0 +1,26 @@
+{% extends 'dash_app/base.html' %}
+
+{% block content %}
+
+   <strong class="fw-bold text-primary display-6"> {{stock.shortname|upper}} | &nbsp;{{stock.stockname}}
+   </strong>
+   
+   
+   <div class="card">
+       <div class="card-body">
+           <p> <strong> ID: {{ stock.id }}</strong></p> 
+           <p> <strong> Stock Name: </strong> {{ stock.shortname }} &nbsp; &nbsp; {{ stock.stockname }}</p> 
+           <p> <strong> Price: </strong>{{ stock.price }}</p> 
+           <p> <strong> Quantity: </strong>{{ stock.quantity }}</p> 
+           <p> <strong> Option: </strong>{{ stock.option }}</p> 
+           <p> <strong> Date of purchase: </strong> {{ stock.creation_date }}</p> 
+       </div>
+   </div>
+   <br>
+
+   <a href="{% url 'stock-list'%}" class="btn btn-outline-info btn-sm">Go back to Dashboard</a>
+   <a href="{% url 'stock-update' stock.id %}" class="btn btn-success btn-sm">Update Record</a>
+   <a href="{% url 'stock-delete' stock.id %}" class="btn btn-danger btn-sm">Delete Record</a>
+   
+
+   {%endblock%}

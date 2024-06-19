@@ -1,0 +1,76 @@
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary justify-content-center" style="background-color: #0f3cc9;">
+
+   
+    <a class="navbar-brand main-heading p-2" href="{% url 'stock-list' %}">&NonBreakingSpace; Stock Dashboard</a>
+  
+  
+         <button
+            class="navbar-toggler collapsed"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarColor01"
+            aria-controls="navbarColor01"
+            aria-expanded="false"
+            aria-label="Toggle navigation"> 
+            <span class="navbar-toggler-icon"></span> 
+        </button>
+  
+  
+      <div class="collapse navbar-collapse text-center" id="navbarNavDropdown">
+  
+        
+        <ul class="navbar-nav mr-auto">
+  
+  
+          &nbsp;     &nbsp;     &nbsp; 
+  
+          {% if user.is_authenticated %}
+  
+            <li class="nav-item">
+        
+              <a class="nav-link active" href="{% url 'stock-list' %}">Tracker &nbsp; <i class="fa fa-home" aria-hidden="true"></i> </a>
+  
+            </li>
+  
+  
+            &nbsp;     &nbsp;     &nbsp; 
+  
+  
+            <li class="nav-item">
+  
+              <a class="nav-link active" href="{% url 'logout' %}">Sign Out &nbsp; <i class="fa fa-sign-out" aria-hidden="true"></i> </a>
+  
+            </li>
+  
+  
+        </ul>
+  
+        {% else %}
+  
+        <li class="nav-item">
+  
+          <a class="nav-link active" href="{% url 'register' %}"> Register </a>
+  
+        </li>
+  
+  
+        &nbsp;     &nbsp;     &nbsp; 
+  
+  
+        <li class="nav-item">
+  
+          <a class="nav-link active" href="{% url 'login' %}">Login</a>
+  
+        </li>
+  
+  
+        {% endif %}
+      
+        
+      </div>
+  
+  
+  </nav>
+
+

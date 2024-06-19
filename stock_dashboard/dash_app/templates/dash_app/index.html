@@ -1,0 +1,28 @@
+{% extends 'dash_app/base.html' %}
+<!-- serves as home page for website -->
+ 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stock Dashboard</title>
+    
+    
+</head>
+
+{% block content %}
+<body>
+    <br>
+    <div class="text-center">
+        <h5 class="text-danger fw-bold"><b>for all your portfolio management needs</b></h5>
+
+        <hr> 
+        <!-- hr is horizontal line -->
+        <a href="{% url 'register' %}" type = "button" class="btn btn-primary">Create User</a>
+
+        
+    </div> 
+</body>
+{% endblock %}
+</html>

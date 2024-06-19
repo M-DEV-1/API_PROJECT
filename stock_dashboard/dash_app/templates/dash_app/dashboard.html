@@ -1,0 +1,51 @@
+{% extends 'dash_app/base.html' %}
+
+{% block content %}
+
+<h1>Welcome to the dashboard, {{user}}.</h1>
+<hr>
+
+<a href="{% url 'stock-create' %}" class="btn btn-outline-primary btn-sm"> Create Record</a>
+
+<hr>
+
+<table class="table table-hover table-responsive">
+
+    <thead class="table-dark">
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Stock Name</th>
+            <th scope="col">Price</th>
+            <th scope="col">Quantity</th>
+            <th scope="col">Actions</th>
+            <th scope="col">Date Purchased</th>
+
+            <th scope="col">View</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% if stocks %}
+            {% for stock in stocks %}
+            <tr>
+                <td>{{ stock.id }}</td>
+                <td>
+                    {{ stock.shortname|upper }}&nbsp;{{ stock.stockname }}
+                </td>
+                <td>{{ stock.price }}</td>
+                <td>{{ stock.quantity }}</td>
+                {% if stock.option == 'BUY' %}
+                <td class="text-bold" style="color: rgb(0, 218, 0)">{{ stock.option }}</td>
+                {% else %}
+                <td style="color: rgb(211, 0, 0)">{{ stock.option }}</td>
+                {% endif %}
+                <td>{{ stock.creation_date}} </td>
+                <td>
+                    <a style = "text-decoration: none; border: 1cm;" href="{% url 'stock-detail' stock.id %}">&nbsp;👁️</a> 
+                   
+                </td>
+            </tr>
+            {% endfor %}
+        {% endif %}
+    </tbody>
+</table>
+{%endblock%}
