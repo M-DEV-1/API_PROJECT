@@ -1,5 +1,4 @@
-# Tech Stack - Django
-# Database - MySQLite3 (default)
+## Tech Stack - Django
 
 ### Simple API calling feature with data exchanges over 2 different projects
 
